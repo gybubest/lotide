@@ -1,14 +1,11 @@
 const verifyItem = function(element, itemsToRemove) {
-  let result = true;
   for (let item of itemsToRemove) {
     if (element === item) {
       return true;
-    } else {
-      result = false;
-    }
+    } 
   }
-  return result;
-}
+  return false;
+};
 
 const without = function(source, itemsToRemove) {
   let accumulator = [];
@@ -18,21 +15,18 @@ const without = function(source, itemsToRemove) {
     }
   }
   return accumulator;
-}
+};
 
 const eqArrays = function(array1, array2) {
   if (array1.length !== array2.length) {
     return false;
   }
-  let result = false;
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] !== array2[i]) {
       return false;
-    } else {
-      result = true;
-    }
+    } 
   }
-  return result;
+  return true;
 };
 
 const assertArraysEqual = function(array1, array2) {
@@ -46,10 +40,14 @@ const assertArraysEqual = function(array1, array2) {
 };
 
 // TEST CODE
-// console.log(without([1, 2, 3], [1]), [2, 3]);
+console.log(without([1, 2, 3], [1]), [2, 3]);
 assertArraysEqual(without([1, 2, 3], [1]), [2, 3]); // => should PASS
-// console.log(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
+console.log(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
 assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]); // => should PASS
+console.log(without(["1", "2", "3"], []), ["1", "2", "3"]);
+assertArraysEqual(without(["1", "2", "3"], []), ["1", "2", "3"]); // => should PASS
+console.log(without([], []), []);
+assertArraysEqual(without([], []), []); // => should PASS
 
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]); // no need to capture return value for this test case
