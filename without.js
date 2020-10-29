@@ -48,6 +48,7 @@ console.log(without(["1", "2", "3"], []), ["1", "2", "3"]);
 assertArraysEqual(without(["1", "2", "3"], []), ["1", "2", "3"]); // => should PASS
 console.log(without([], []), []);
 assertArraysEqual(without([], []), []); // => should PASS
+assertArraysEqual(without([5, 6, 6, 6], [6, 6]), [5]); // => should PASS
 
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]); // no need to capture return value for this test case

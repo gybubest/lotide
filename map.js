@@ -20,9 +20,20 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
+// FUNCTION IMPLEMENTATION
+const words = ["ground", "control", "to", "major", "tom"];
+
+const map = function(array, callback) {
+  const results = [];
+  for (let item of array) {
+    results.push(callback(item));
+  }
+  return results;
+}
+
+const results1 = map(words, word => word[0]);
+
+// console.log(results1);
 
 // TEST CODE
-assertArraysEqual([1, 2, 3], [1, 2, 3]); // => should PASS
-assertArraysEqual([], []); // => should PASS
-assertArraysEqual([], [1, 2, 3]); // => should FAIL
-assertArraysEqual(["1", "2", "3"], ["1", "2", 3]); // => should FAIL
+assertArraysEqual(results1, [ 'g', 'c', 't', 'm', 't' ]); // => should PASS
