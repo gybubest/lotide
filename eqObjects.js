@@ -20,7 +20,7 @@ const eqArrays = function(array1, array2) {
       }
     } else if (value1 !== value2) {
       return false;
-    } 
+    }
   }
   return true;
 };
@@ -39,24 +39,22 @@ const eqObjects = function(object1, object2) {
     let value2 = object2[key];
     // if (value2 === undefined) {
     //   return false;
-    // } 
+    // }
     if (value1 === value2) {
       continue;
     }
     if (Array.isArray(value1) || Array.isArray(value2)) {
       if (!eqArrays(value1, value2)) {
-        return false
+        return false;
       }
-    } 
-    else if (typeof (value1) === 'object' || typeof (value2) === 'object') {
+    } else if (typeof (value1) === 'object' || typeof (value2) === 'object') {
       if (!eqObjects(value1, value2)) {
         return false;
       }
-    } 
-    else {
+    } else {
       // if (value1 !== value2) {
       //   return false
-      return false
+      return false;
     }
   }
   return true;
